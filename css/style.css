@@ -480,9 +480,123 @@ template
 
 .wrapper
 {
+    position: relative;
+
     display: grid;
 
     grid-template-columns: 1fr minmax(auto, 1170px) 1fr;
+}
+
+.preloader
+{
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: 1s linear;
+            transition: 1s linear;
+
+    opacity: 1;
+    background-color: white;
+
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.preloader.-type-disable
+{
+    visibility: hidden;
+
+    opacity: 0;
+}
+
+.preloader__item
+{
+    position: absolute;
+    top: calc(50vh - 10px);
+    left: calc(50% - 10px);
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    -webkit-animation-name: preload-animation;
+            animation-name: preload-animation;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+
+    opacity: .5;
+    border-radius: 50%;
+}
+
+.preloader__item.red
+{
+    background-color: #ff8438;
+}
+
+.preloader__item.green
+{
+    -webkit-animation-delay: .5s;
+            animation-delay: .5s;
+
+    background-color: #92ff44;
+}
+
+.preloader__item.blue
+{
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+
+    background-color: #58fffc;
+}
+
+@-webkit-keyframes preload-animation
+{
+    from
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    to
+    {
+        -webkit-transform: scale(4);
+                transform: scale(4);
+    }
+}
+
+@keyframes preload-animation
+{
+    from
+    {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+
+    to
+    {
+        -webkit-transform: scale(4);
+                transform: scale(4);
+    }
 }
 
 .header
