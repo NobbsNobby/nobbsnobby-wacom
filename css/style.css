@@ -2746,3 +2746,15 @@ p
         display: none;
     }
 }
+@media screen and (max-width: 768px)
+{
+    .slider {
+margin-top: -36%;
+}
+}
+@media screen and (max-width: 768px)
+{
+    .slider {
+margin-top: -23%;
+}
+}
